@@ -5,6 +5,15 @@ body {
     sans-serif;
 }
 
+.dark-mode {
+  background: #0e101c;
+}
+.light-mode {
+  background: #ffffff;
+  color: #333;
+  transition: background-color 0.25s ease-out;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -56,7 +65,16 @@ h1 {
 
 .plant-details {
   padding: 0 32px 0 16px;
-  color: #fff;
+  color: #0e101c;
+  font-weight: 200;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.plant-details-dark {
+  padding: 0 32px 0 16px;
+  color: rgb(201, 200, 200);
   font-weight: 200;
   display: flex;
   flex-flow: column nowrap;
@@ -250,4 +268,65 @@ pre {
 .active {
   color: #0e101c;
   border-bottom: 2px solid !important;
+}
+
+.toggle {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+input[type='checkbox'].checkbox {
+  width: 40px;
+  height: 10px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+}
+
+input[type='checkbox'].checkbox:checked + label {
+  left: 30px;
+}
+
+input[type='checkbox'].checkbox:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type='checkbox'].checkbox + label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 0.9;
+  background-color: cyan;
+}
+
+.toggle-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.toggle-container > span {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+.toggle-container > span:last-child {
+  margin-top: 5px;
 }

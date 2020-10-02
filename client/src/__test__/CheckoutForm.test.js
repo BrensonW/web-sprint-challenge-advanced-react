@@ -1,0 +1,23 @@
+import React from 'react'
+import { render, fireEvent } from '@testing-library/react'
+import CheckoutForm from '../components/CheckoutForm'
+
+// Write up the two tests here and make sure they are testing what the title shows
+
+test('CheckOut Page renders withour Crashing', () => {
+  render(<CheckoutForm />)
+})
+
+test("form header renders", () => {
+  const { getByText } = render(<CheckoutForm />);
+  const Header = getByText("Checkout Form");
+  expect(Header).toBeInTheDocument;
+});
+
+test("form shows success message on submit with form details", () => {
+  const { getByText, getByTestId } = render(<CheckoutForm />);
+  const button = getByText("Checkout");
+  fireEvent.click(button);
+  const success = getByTestId("successMessage");
+  expect(success).toBeInTheDocument;
+});
